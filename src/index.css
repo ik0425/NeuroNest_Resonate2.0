@@ -1,10 +1,91 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #6DBF9E;
-  --color-primary-dark: #4fa882;
-  --color-secondary: #8B9CF4;
-  --color-accent: #F4A89A;
+  /* Color palette */
+  --color-primary: #FAFBFF;
+  --color-sage: #6DBF9E;
+  --color-periwinkle: #8B9CF4;
+  --color-blush: #F4A89A;
   --color-navy: #1E2A5E;
-  --color-muted: #5A6482;
+  --color-slate: #5A6482;
+
+  /* Font families */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "DM Sans", sans-serif;
+  --font-chat: "Lora", serif;
+
+  /* Custom animations */
+  --animate-breathe: breathe 4s ease-in-out infinite;
+  --animate-levitate: levitate 5s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+  --animate-bob: bob 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(0.98); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes levitate {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Global base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-primary);
+  color: var(--color-slate);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-navy);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+h3 { font-size: clamp(1.2rem, 3vw, 1.6rem); }
+
+p {
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* Custom utility classes */
+@utility glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+@utility glass-nav {
+  background: rgba(250, 251, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
