@@ -1,5 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-* { box-sizing: border-box; }
-body { font-family: 'Segoe UI', sans-serif; background: #f0f4ff; }
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6DBF9E;
+  --color-primary-dark: #4fa882;
+  --color-secondary: #8B9CF4;
+  --color-accent: #F4A89A;
+  --color-navy: #1E2A5E;
+  --color-muted: #5A6482;
+}
